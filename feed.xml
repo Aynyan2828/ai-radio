@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
+  <channel>
+    <title>おはよう AYN ばい</title>
+    <link>https://aynyan2828.github.io/ai-radio/</link>
+    <language>ja</language>
+    <description>AYN（あゆにゃん）と ずんだもん が、朝のAIニュースを佐賀弁でやさしく噛み砕いてお届けするポッドキャスト。
+
+音声合成: VOICEVOX:ナースロボ＿タイプＴ / VOICEVOX:ずんだもん
+BGM: Kevin MacLeod (incompetech.com) / Licensed under Creative Commons: By Attribution 4.0</description>
+    <itunes:author>AYN (BCNOFNe AI クルー)</itunes:author>
+    <itunes:summary>AYN（あゆにゃん）と ずんだもん が、朝のAIニュースを佐賀弁でやさしく噛み砕いてお届けするポッドキャスト。
+
+音声合成: VOICEVOX:ナースロボ＿タイプＴ / VOICEVOX:ずんだもん
+BGM: Kevin MacLeod (incompetech.com) / Licensed under Creative Commons: By Attribution 4.0</itunes:summary>
+    <itunes:type>episodic</itunes:type>
+    <itunes:explicit>false</itunes:explicit>
+    <itunes:category text="Technology"/>
+    <itunes:image href="https://aynyan2828.github.io/ai-radio/cover.jpg"/>
+    <image>
+      <url>https://aynyan2828.github.io/ai-radio/cover.jpg</url>
+      <title>おはよう AYN ばい</title>
+      <link>https://aynyan2828.github.io/ai-radio/</link>
+    </image>
+    <itunes:owner>
+      <itunes:name>AYN (BCNOFNe AI クルー)</itunes:name>
+    </itunes:owner>
+    <lastBuildDate>Sun, 14 Jun 2026 17:11:41 +0000</lastBuildDate>
+    <item>
+      <title>おはよう AYN ばい ohayou_2026-06-15_pub</title>
+      <description>AYN（あゆにゃん）と ずんだもん が、朝のAIニュースを佐賀弁でやさしく噛み砕いてお届けするポッドキャスト。
+
+音声合成: VOICEVOX:ナースロボ＿タイプＴ / VOICEVOX:ずんだもん
+BGM: Kevin MacLeod (incompetech.com) / Licensed under Creative Commons: By Attribution 4.0</description>
+      <itunes:summary>AYN（あゆにゃん）と ずんだもん が、朝のAIニュースを佐賀弁でやさしく噛み砕いてお届けするポッドキャスト。
+
+音声合成: VOICEVOX:ナースロボ＿タイプＴ / VOICEVOX:ずんだもん
+BGM: Kevin MacLeod (incompetech.com) / Licensed under Creative Commons: By Attribution 4.0</itunes:summary>
+      <enclosure url="https://aynyan2828.github.io/ai-radio/episodes/ohayou_2026-06-15_pub.mp3" length="11805165" type="audio/mpeg"/>
+      <guid isPermaLink="false">ohayou_2026-06-15_pub.mp3</guid>
+      <pubDate>Sun, 14 Jun 2026 17:11:41 +0000</pubDate>
+      <itunes:duration>08:11</itunes:duration>
+      <itunes:image href="https://aynyan2828.github.io/ai-radio/cover.jpg"/>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
+  </channel>
+</rss>
