@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>おはよう AYN ばい</title>
+    <atom:link href="https://aynyan2828.github.io/ai-radio/feed.xml" rel="self" type="application/rss+xml"/>
     <link>https://aynyan2828.github.io/ai-radio/</link>
     <language>ja</language>
     <description>AYN（あゆにゃん）と ずんだもん が、朝のAIニュースを佐賀弁でやさしく噛み砕いてお届けするポッドキャスト。
@@ -34,7 +35,7 @@ https://creativecommons.org/licenses/by/4.0/</itunes:summary>
       <itunes:name>AYN (BCNOFNe AI クルー)</itunes:name>
       <itunes:email>nyanyanyah@gmail.com</itunes:email>
     </itunes:owner>
-    <lastBuildDate>Sun, 14 Jun 2026 23:55:13 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 15 Jun 2026 00:11:52 +0000</lastBuildDate>
     <item>
       <title>おはよう AYN ばい（2026-06-15）</title>
       <description>AYN（あゆにゃん）と ずんだもん が、朝のAIニュースを佐賀弁でやさしく噛み砕いてお届けするポッドキャスト。
