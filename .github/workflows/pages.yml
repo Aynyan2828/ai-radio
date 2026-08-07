@@ -1,0 +1,53 @@
+name: Deploy Podcast feed to Pages
+
+# なぜ Actions でデプロイするか（2026-08-07 / Prompt208）:
+#   旧方式（Actions 無しの legacy Pages ビルダー）は、mp3 が積もって
+#   2.24GB になったこのリポジトリでビルドに失敗し、8/6 以降の配信が
+#   黙って止まった。push は通るけんローカルからは正常に見えるのが厄介。
+#   Actions なら shallow checkout（fetch-depth: 1）で巨大な履歴を引かず、
+#   feed.xml + index.html + cover.jpg だけの軽い成果物を配信できる。
+#   音声は Releases（タグ `episodes`）でホストしとる。
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 朝夜の publish が続けて走っても、最新の1本だけをデプロイする
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1  # ★履歴 2.24GB を引かんための肝
+
+      - name: 配信する中身だけ集める（mp3 は Releases なので入れん）
+        run: |
+          set -euo pipefail
+          mkdir -p _site
+          cp feed.xml index.html _site/
+          cp cover.jpg _site/ 2>/dev/null || echo "cover.jpg 無し（スキップ）"
+          touch _site/.nojekyll
+          echo "--- deploy する中身:"
+          ls -la _site
+          du -sh _site
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v4

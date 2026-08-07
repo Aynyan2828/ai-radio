@@ -1,0 +1,5 @@
+# 音声は GitHub Releases（タグ `episodes`）でホストする。
+# ここに mp3 を積むと .git が肥大し、GitHub Pages のビルドが失敗して
+# 配信だけ黙って止まる（2026-08-06 に発生・リポ 2.24GB）。
+# episodes/ はローカルの作業置き場（長さ・サイズ算出用）で、コミットせん。
+episodes/
