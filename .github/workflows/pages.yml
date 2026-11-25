@@ -12,6 +12,11 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+    inputs:
+      fail_first:
+        description: 'やり直しの試験（1回目のデプロイをわざと失敗させる）'
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -28,7 +33,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.d1.outputs.page_url || steps.d2.outputs.page_url || steps.d3.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -49,5 +54,32 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
-      - id: deployment
+
+      # ★成果物を上げた直後は、GitHub 側の一覧にまだ出とらんことがある
+      #   （"No artifacts named github-pages" で失敗。2026-11 に多発。
+      #    actions/deploy-pages issue 451）。少し待って、だめなら 2 回までやり直す。
+      #   ※「Re-run」で回すと成果物が 2 つになって別の失敗になる。手で直す時は
+      #     Actions 画面の「Run workflow」で新しく回すこと。
+      - name: 成果物が一覧に出るまで少し待つ
+        run: sleep 15
+
+      - id: d1
+        continue-on-error: true
+        uses: actions/deploy-pages@v4
+        with:
+          artifact_name: ${{ inputs.fail_first && 'retry-test-missing' || 'github-pages' }}
+
+      - name: 1回目が失敗したので待つ
+        if: steps.d1.outcome == 'failure'
+        run: sleep 20
+      - id: d2
+        if: steps.d1.outcome == 'failure'
+        continue-on-error: true
+        uses: actions/deploy-pages@v4
+
+      - name: 2回目も失敗したので待つ
+        if: steps.d2.outcome == 'failure'
+        run: sleep 45
+      - id: d3
+        if: steps.d2.outcome == 'failure'
         uses: actions/deploy-pages@v4
